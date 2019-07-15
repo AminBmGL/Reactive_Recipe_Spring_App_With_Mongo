@@ -2,7 +2,6 @@ package insat.gl.recipies.controllers;
 
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -25,6 +24,7 @@ import insat.gl.recipies.domain.Recipe;
 import insat.gl.recipies.exceptions.ControllerExceptionHandler;
 import insat.gl.recipies.exceptions.NotFoundException;
 import insat.gl.recipies.services.RecipeService;
+import reactor.core.publisher.Mono;
 
 public class RecipeControllerTest {
 
@@ -51,7 +51,7 @@ public class RecipeControllerTest {
         Recipe recipe = new Recipe();
         recipe.setId("123");
 
-        when(recipeService.findById(any())).thenReturn(recipe);
+        when(recipeService.findById(any())).thenReturn(Mono.just(recipe));
 
         mockMvc.perform(get("/recipe/1/show"))
                 .andExpect(status().isOk())
@@ -86,7 +86,7 @@ public class RecipeControllerTest {
         RecipeCommand command = new RecipeCommand();
         command.setId("123");
 
-        when(recipeService.saveRecipeCommand(any())).thenReturn(command);
+        when(recipeService.saveRecipeCommand(any())).thenReturn(Mono.just(command));
 
         mockMvc.perform(post("/recipe")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
@@ -102,7 +102,7 @@ public class RecipeControllerTest {
         RecipeCommand command = new RecipeCommand();
         command.setId("123");
 
-        when(recipeService.saveRecipeCommand(any())).thenReturn(command);
+        when(recipeService.saveRecipeCommand(any())).thenReturn(Mono.just(command));
 
         mockMvc.perform(post("/recipe")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
@@ -120,7 +120,7 @@ public class RecipeControllerTest {
         RecipeCommand command = new RecipeCommand();
         command.setId("123");
 
-        when(recipeService.findCommandById(any())).thenReturn(command);
+        when(recipeService.findCommandById(any())).thenReturn(Mono.just(command));
 
         mockMvc.perform(get("/recipe/1/update"))
                 .andExpect(status().isOk())

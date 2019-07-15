@@ -25,6 +25,7 @@ import insat.gl.recipies.commands.RecipeCommand;
 import insat.gl.recipies.exceptions.ControllerExceptionHandler;
 import insat.gl.recipies.services.ImageService;
 import insat.gl.recipies.services.RecipeService;
+import reactor.core.publisher.Mono;
 
 public class ImageControllerTest {
 
@@ -54,7 +55,7 @@ public class ImageControllerTest {
         RecipeCommand command = new RecipeCommand();
         command.setId("123");
 
-        when(recipeService.findCommandById(any())).thenReturn(command);
+        when(recipeService.findCommandById(any())).thenReturn(Mono.just(command));
 
         //when
         mockMvc.perform(get("/recipe/1/image"))
@@ -97,7 +98,7 @@ public class ImageControllerTest {
 
         command.setImage(bytesBoxed);
 
-        when(recipeService.findCommandById(any())).thenReturn(command);
+        when(recipeService.findCommandById(any())).thenReturn(Mono.just(command));
 
         //when
         MockHttpServletResponse response = mockMvc.perform(get("/recipe/1/recipeimage"))

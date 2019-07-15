@@ -9,7 +9,6 @@ import insat.gl.recipies.converters.IngredientCommandToIngredient;
 import insat.gl.recipies.converters.IngredientToIngredientCommand;
 import insat.gl.recipies.domain.Ingredient;
 import insat.gl.recipies.domain.Recipe;
-import insat.gl.recipies.repositories.RecipeRepository;
 import insat.gl.recipies.repositories.reactive.RecipeReactiveRepository;
 import insat.gl.recipies.repositories.reactive.UnitOfMeasureReactiveRepository;
 import lombok.extern.slf4j.Slf4j;
