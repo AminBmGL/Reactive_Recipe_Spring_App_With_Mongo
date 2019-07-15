@@ -1,10 +1,9 @@
 package insat.gl.recipies.services;
 
-import java.util.Set;
-
 import insat.gl.recipies.commands.UnitOfMeasureCommand;
+import reactor.core.publisher.Flux;
 
 public interface UnitOfMeasureService {
 
-    Set<UnitOfMeasureCommand> listAllUoms();
+    Flux<UnitOfMeasureCommand> listAllUoms();
 }
