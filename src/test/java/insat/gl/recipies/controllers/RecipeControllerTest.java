@@ -1,7 +1,7 @@
 package insat.gl.recipies.controllers;
 
 
-import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -120,7 +120,7 @@ public class RecipeControllerTest {
         RecipeCommand command = new RecipeCommand();
         command.setId("123");
 
-        when(recipeService.findCommandById(any())).thenReturn(Mono.just(command));
+        when(recipeService.findCommandById(anyString())).thenReturn(Mono.just(command));
 
         mockMvc.perform(get("/recipe/1/update"))
                 .andExpect(status().isOk())
@@ -130,10 +130,11 @@ public class RecipeControllerTest {
 
     @Test
     public void testDeleteAction() throws Exception {
+    	
         mockMvc.perform(get("/recipe/1/delete"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/"));
 
-        verify(recipeService, times(1)).deleteById(any());
+        verify(recipeService, times(1)).deleteById(anyString());
     }
 }

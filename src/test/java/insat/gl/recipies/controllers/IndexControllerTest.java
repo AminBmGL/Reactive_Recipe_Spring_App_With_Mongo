@@ -48,6 +48,7 @@ public class IndexControllerTest {
     @Test
     public void testMockMVC() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+        when(recipeService.getRecipes()).thenReturn(Flux.empty());
 
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
