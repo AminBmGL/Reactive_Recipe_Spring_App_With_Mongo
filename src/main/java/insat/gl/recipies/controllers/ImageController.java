@@ -1,12 +1,5 @@
 package insat.gl.recipies.controllers;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import insat.gl.recipies.commands.RecipeCommand;
 import insat.gl.recipies.services.ImageService;
 import insat.gl.recipies.services.RecipeService;
 
@@ -45,7 +37,7 @@ public class ImageController {
         return "redirect:/recipe/" + id + "/show";
     }
     
-    @GetMapping("recipe/{id}/recipeimage")
+    /*@GetMapping("recipe/{id}/recipeimage")
     public void renderImageFromDB(@PathVariable String id, HttpServletResponse response) throws IOException {
         RecipeCommand recipeCommand = recipeService.findCommandById(id).block();
 
@@ -61,5 +53,5 @@ public class ImageController {
             InputStream is = new ByteArrayInputStream(byteArray);
             IOUtils.copy(is, response.getOutputStream());
         }
-    }  
+    }  */
 }

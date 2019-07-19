@@ -19,6 +19,11 @@
 	</properties>
 
 	<dependencies>
+	
+			<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+			</dependency>
 		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
@@ -42,10 +47,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-webflux</artifactId>
+ 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -73,11 +79,6 @@
     	<groupId>org.webjars</groupId>
    		 <artifactId>jquery</artifactId>
    		 <version>3.4.1</version>
-		</dependency>
-
-       <dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
 		
 		<dependency>
